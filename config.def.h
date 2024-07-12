@@ -91,13 +91,14 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *ranger[]  = { "kitty", "ranger", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = ranger } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("flameshot gui") },
-	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("ranger") },
 	{ 0,		                XK_F1,     spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
 	{ 0,             		XK_F2,     spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
 	{ 0,             		XK_F3,     spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
