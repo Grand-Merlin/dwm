@@ -42,11 +42,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "kitty",   NULL,     NULL,           1,         0,          1,           0,        -1 },
-	{ "firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class        instance  title           tags mask     isfloating  isterminal  noswallow  monitor */
+	{ "KeePassXC",  NULL,     NULL,           1 << 8,       0,          1,           0,        -1 },
+	{ "FreeTube",   NULL,     NULL,           1 << 7,       0,          1,           0,        -1 },
+	{ "firefox",    NULL,     NULL,           1 << 1,       0,          0,          -1,        -1 },
+	{ "St",         NULL,     NULL,           0,            0,          1,           0,        -1 },
+	{ NULL,         NULL,     "Event Tester", 0,            0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -100,11 +101,11 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = ranger } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("flameshot gui") },
-	{ 0,		                XK_F1,     spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-	{ 0,             		XK_F2,     spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
-	{ 0,             		XK_F3,     spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
-	{ 0,             		XK_F11,    spawn,          SHCMD("xbacklight -dec 5") },
-	{ 0,             		XK_F12,    spawn,          SHCMD("xbacklight -inc 5") },
+	{ 0,		                        XK_F1,     spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ 0,             		            XK_F2,     spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
+	{ 0,             		            XK_F3,     spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
+	{ 0,             		            XK_F11,    spawn,          SHCMD("xbacklight -dec 5") },
+	{ 0,             		            XK_F12,    spawn,          SHCMD("xbacklight -inc 5") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
